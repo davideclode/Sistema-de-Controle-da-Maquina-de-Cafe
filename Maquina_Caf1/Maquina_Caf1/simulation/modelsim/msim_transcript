@@ -1,0 +1,134 @@
+# vsim +altera -do CONTADOR_run_msim_rtl_vhdl.do -l msim_transcript -gui work.tb_controle_sensores 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tb_controle_sensores(behavioral)
+# Loading work.controle_sensores(behavioral)
+# do CONTADOR_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/simulation/modelsim/simulacao.mpf
+# 
+# vcom -93 -work work {C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity CAFETEIRA
+# -- Compiling architecture behavioral of CAFETEIRA
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(153): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+# 
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(190): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+# 
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(201): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+# 
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(225): VHDL Compiler exiting
+# ** Error: C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./CONTADOR_run_msim_rtl_vhdl.do line 8
+# C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd}"
+add wave -position insertpoint  \
+sim:/tb_controle_sensores/w_EN_Maquina \
+sim:/tb_controle_sensores/w_iSensorNivel \
+sim:/tb_controle_sensores/w_iSensorTempert \
+sim:/tb_controle_sensores/w_oSensorNivel \
+sim:/tb_controle_sensores/w_oSensorTempert
+run
+# Compile of tb_CONTADOR.vhd was successful.
+# Compile of CONTADOR.vhd was successful.
+# Compile of tb_CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_PEDIDO.vhd was successful.
+# Compile of CONTROLE_SENSORES.vhd was successful.
+# Compile of maquina_estados.vhd was successful.
+# Compile of tb_CONTROLE_SENSORES.vhd was successful.
+# Compile of CAFETEIRA.vhd failed with 4 errors.
+# 9 compiles, 1 failed with 4 errors. 
+restart
+# Loading work.tb_controle_sensores(behavioral)
+# Loading work.controle_sensores(behavioral)
+run
+# Compile of tb_CONTADOR.vhd was successful.
+# Compile of CONTADOR.vhd was successful.
+# Compile of tb_CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_PEDIDO.vhd was successful.
+# Compile of CONTROLE_SENSORES.vhd was successful.
+# Compile of maquina_estados.vhd was successful.
+# Compile of tb_CONTROLE_SENSORES.vhd was successful.
+# Compile of CAFETEIRA.vhd failed with 4 errors.
+# 9 compiles, 1 failed with 4 errors. 
+run
+# Compile of tb_CONTADOR.vhd was successful.
+# Compile of CONTADOR.vhd was successful.
+# Compile of tb_CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_DISPLAYS.vhd was successful.
+# Compile of tb_CONTROLE_PEDIDO.vhd was successful.
+# Compile of CONTROLE_PEDIDO.vhd was successful.
+# Compile of tb_CONTROLE_SENSORES.vhd was successful.
+# Compile of CONTROLE_SENSORES.vhd was successful.
+# Compile of maquina_estados.vhd was successful.
+# Compile of CAFETEIRA.vhd failed.
+vsim +altera -do CONTADOR_run_msim_rtl_vhdl.do -l msim_transcript -gui work.tb_controle_pedido
+# vsim +altera -do CONTADOR_run_msim_rtl_vhdl.do -l msim_transcript -gui work.tb_controle_pedido 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tb_controle_pedido(behavioral)
+# Loading work.controle_pedido(behavioral)
+# do CONTADOR_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/simulation/modelsim/simulacao.mpf
+# 
+# vcom -93 -work work {C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity CAFETEIRA
+# -- Compiling architecture behavioral of CAFETEIRA
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(153): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+# 
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(190): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+# 
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(201): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+# 
+# ** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(225): VHDL Compiler exiting
+# ** Error: C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./CONTADOR_run_msim_rtl_vhdl.do line 8
+# C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd}"
+add wave -position insertpoint  \
+sim:/tb_controle_pedido/w_BOTAO_Acucar \
+sim:/tb_controle_pedido/w_BOTAO_CLeite \
+sim:/tb_controle_pedido/w_BOTAO_Cafe \
+sim:/tb_controle_pedido/w_BOTAO_Mocha \
+sim:/tb_controle_pedido/w_BOTAO_Tamanho \
+sim:/tb_controle_pedido/w_CLK \
+sim:/tb_controle_pedido/w_EN \
+sim:/tb_controle_pedido/w_INTERFACE \
+sim:/tb_controle_pedido/w_PEDIDO \
+sim:/tb_controle_pedido/w_RST \
+sim:/tb_controle_pedido/w_VALIDADE
+run

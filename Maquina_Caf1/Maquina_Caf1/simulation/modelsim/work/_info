@@ -1,0 +1,273 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Patrick\Desktop\Maquina_Caf1\Maquina_Caf1\simulation\modelsim
+Ecafeteira
+w1562628570
+Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z3 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\Patrick\Desktop\Maquina_Caf1\Maquina_Caf1\simulation\modelsim
+8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd
+FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd
+l0
+L8
+VBUXRYf`ZZCQ7lRa6KM7FL1
+!s100 NX`_Vo:DgC;2a>DcY^coz2
+Z7 OV;C;10.1d;51
+32
+!i10b 1
+!s108 1562641409.131000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd|
+!s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd|
+Z8 o-work work -2002 -explicit -O0
+Z9 tExplicit 1
+Econtador
+Z10 w1562640699
+R1
+R2
+R3
+R4
+R5
+R6
+Z11 8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTADOR.vhd
+Z12 FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTADOR.vhd
+l0
+L7
+VMn_lz<>lPzg;HbB>Ao0E:3
+R7
+32
+Z13 !s108 1562641408.278000
+Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTADOR.vhd|
+Z15 !s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTADOR.vhd|
+R8
+R9
+!s100 hEX5F=iB6RjNj`XPHfcSZ2
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+DEx4 work 8 contador 0 22 Mn_lz<>lPzg;HbB>Ao0E:3
+l26
+L17
+VO_8_]3PIBJ2`2=^z64eKT2
+R7
+32
+R13
+R14
+R15
+R8
+R9
+!s100 6JDlFzoE92K3aMW^fh0hj0
+!i10b 1
+Econtrole_displays
+Z16 w1562619937
+R1
+R2
+R3
+R4
+R5
+R6
+Z17 8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_DISPLAYS.vhd
+Z18 FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_DISPLAYS.vhd
+l0
+L7
+V_cohKf_g0mYU2OnB<Uif@2
+R7
+32
+Z19 !s108 1562641408.418000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_DISPLAYS.vhd|
+Z21 !s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_DISPLAYS.vhd|
+R8
+R9
+!s100 a`FnWNE:E@_9d=NZ[`IVK2
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+DEx4 work 17 controle_displays 0 22 _cohKf_g0mYU2OnB<Uif@2
+l26
+L23
+Vd4YO_E5BEnL[]hi0o77?@1
+R7
+32
+R19
+R20
+R21
+R8
+R9
+!s100 C7kKcD9hnJdK65]LBIgQK3
+!i10b 1
+Econtrole_pedido
+Z22 w1562626456
+R1
+R2
+R3
+R4
+R5
+R6
+Z23 8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_PEDIDO.vhd
+Z24 FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_PEDIDO.vhd
+l0
+L7
+VOzMO=D^L3LX8UH<9E6V?D2
+R7
+32
+Z25 !s108 1562641408.558000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_PEDIDO.vhd|
+Z27 !s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_PEDIDO.vhd|
+R8
+R9
+!s100 PKCLizU@F=>AL;^3;8ZR02
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+DEx4 work 15 controle_pedido 0 22 OzMO=D^L3LX8UH<9E6V?D2
+l29
+L25
+V;V^<dzQe1CUck4HW^ZaTI2
+R7
+32
+R25
+R26
+R27
+R8
+R9
+!s100 SB@@gP>@JdI4IXXT<jd<?1
+!i10b 1
+Econtrole_sensores
+Z28 w1562627421
+R1
+R2
+R3
+R4
+R5
+R6
+Z29 8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_SENSORES.vhd
+Z30 FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_SENSORES.vhd
+l0
+L7
+VGD^47c4goOUhSc<@EOMJY3
+R7
+32
+Z31 !s108 1562641408.699000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_SENSORES.vhd|
+Z33 !s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_SENSORES.vhd|
+R8
+R9
+!s100 U3TjX`VPO9g^86GCk;gG12
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+DEx4 work 17 controle_sensores 0 22 GD^47c4goOUhSc<@EOMJY3
+l21
+L20
+VEdZV[]lE[_lB>Uo3mfUzm2
+R7
+32
+R31
+R32
+R33
+R8
+R9
+!s100 TEO`N3T^kHJU1D6I:V^Kf3
+!i10b 1
+Emaquina_estados
+Z34 w1562628594
+R1
+R2
+R3
+R4
+R5
+R6
+Z35 8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/maquina_estados.vhd
+Z36 FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/maquina_estados.vhd
+l0
+L7
+VG`PABhQdUS:Wh_]3M2U2D1
+R7
+32
+Z37 !s108 1562641408.838000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/maquina_estados.vhd|
+Z39 !s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/maquina_estados.vhd|
+R8
+R9
+!s100 03PJnVikJY;jEm^M;1BoD1
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+DEx4 work 15 maquina_estados 0 22 G`PABhQdUS:Wh_]3M2U2D1
+l46
+L33
+VLC>Mc3k82;;anK;6PWaPB2
+R7
+32
+R37
+R38
+R39
+R8
+R9
+!s100 S;AQ`=Q@Sfg<mbDZEO9Nn2
+!i10b 1
+Etb_contador
+Z40 w1562641355
+R1
+R2
+R3
+R4
+R5
+R6
+Z41 8C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTADOR.vhd
+Z42 FC:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTADOR.vhd
+l0
+L7
+V20Qei@NBMZJ7U]OJANlCF1
+R7
+32
+Z43 !s108 1562641408.133000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTADOR.vhd|
+Z45 !s107 C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTADOR.vhd|
+R8
+R9
+!s100 m^2QCX<DM:8NN5NE;jbf22
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+DEx4 work 11 tb_contador 0 22 20Qei@NBMZJ7U]OJANlCF1
+l27
+L10
+V:LgZT0XYLL1N=:Z;8Gblc0
+R7
+32
+R43
+R44
+R45
+R8
+R9
+!s100 3Gc1o5Yf^l459M=T`bldd0
+!i10b 1

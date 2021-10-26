@@ -1,0 +1,225 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+
+ENTITY CAFETEIRA IS
+	PORT(
+		
+		i_CLK					: IN STD_LOGIC;
+		i_RST					: IN STD_LOGIC;
+	
+		i_Bt_Preparo 		: IN STD_LOGIC;
+		i_Bt_Reposicao 	: IN STD_LOGIC;
+		i_Bt_Cafe 			: IN STD_LOGIC;
+		i_Bt_CLeite 		: IN STD_LOGIC;
+		i_Bt_Mocha 			: IN STD_LOGIC;
+		i_Bt_Acucar 		: IN STD_LOGIC;
+		i_Bt_Tamanho 		: IN STD_LOGIC;
+		i_SensorT 			: IN STD_LOGIC;
+		i_SensorN			: IN STD_LOGIC;
+		
+		o_Valvulas		 	: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+		o_SensorT			: OUT STD_LOGIC;
+		o_SensorN			: OUT STD_LOGIC;
+		o_Display1			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_Display2			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_Display3			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_Display4			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_Interface 		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+	
+	);
+END CAFETEIRA;
+
+ARCHITECTURE behavioral OF CAFETEIRA IS
+
+	COMPONENT CONTROLE_PEDIDO IS
+	PORT(
+		i_Bt_Cafe 	: IN STD_LOGIC;
+		i_Bt_CLeite : IN STD_LOGIC;
+		i_Bt_Mocha 	: IN STD_LOGIC;
+		i_Bt_Acucar : IN STD_LOGIC;
+		i_Bt_Tamanho: IN STD_LOGIC;
+		
+		i_RST 		: IN STD_LOGIC;
+		i_CLK			: IN STD_LOGIC;
+		i_EN			: IN STD_LOGIC;
+		
+		o_PEDIDO 	: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+		o_VALIDADE	: OUT STD_LOGIC;
+		o_INTERFACE : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+		
+		);
+	END COMPONENT;
+	
+	COMPONENT maquina_estados IS
+	PORT(
+		
+		i_RST 				: in STD_LOGIC;
+		i_CLK 				: in STD_LOGIC;
+	
+		i_BT_REPOSICAO 	: in STD_LOGIC;
+		i_BT_PREPARO 		: in STD_LOGIC;
+		i_PEDIDO 			: in STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2mocha, 1cleite, 0cafe
+		i_VALIDADE			: in STD_LOGIC;
+		i_CONTAGEM_P		: in STD_LOGIC;
+		i_EN_SENSORES		: in STD_LOGIC;
+		
+		o_VALVULAS			: out STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2choco, 1leite, 0cafe
+		o_EN_CONTAGEM		: out STD_LOGIC_VECTOR(4 DOWNTO 0);
+		o_DISPLAY			: out STD_LOGIC_VECTOR(1 DOWNTO 0);	--decidir se é 1 ou 2 posições
+		o_EN_DISPLAY		: out	STD_LOGIC;
+		o_EN_PEDIDO			: out STD_LOGIC; 
+		o_RST_PEDIDO		: OUT STD_LOGIC;
+		o_RST_CONT			: out STD_LOGIC;
+		o_RST_DISPLAY		: out STD_LOGIC
+		
+		);
+	END COMPONENT;
+	
+	COMPONENT CONTADOR IS
+	PORT(
+		i_CLK 	: IN STD_LOGIC;
+		i_RST 	: IN STD_LOGIC;
+		
+		i_EN 		: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		o_DONE 	: OUT STD_LOGIC
+		
+	);
+	END COMPONENT;
+	
+	COMPONENT CONTROLE_DISPLAYS IS
+	PORT(
+	
+		i_RST 		: IN STD_LOGIC;
+		i_CLK			: IN STD_LOGIC;
+		i_EN			: IN STD_LOGIC;
+		i_DISPLAYS	: IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+		
+		o_DISPLAY_1	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_DISPLAY_2	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_DISPLAY_3	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		o_DISPLAY_4	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		
+		);
+	END COMPONENT;
+	
+	COMPONENT CONTROLE_SENSORES IS
+	PORT(
+
+		i_SensorT 	: IN STD_LOGIC;
+		i_SensorN 	: IN STD_LOGIC;
+		
+		o_SensorT 	: OUT STD_LOGIC;
+		o_SensorN	: OUT STD_LOGIC;
+		o_EN_Maquina: OUT STD_LOGIC
+		
+		);
+	END COMPONENT;
+	
+	signal w_EN_PEDIDO	: STD_LOGIC;	
+	signal w_PEDIDO		: STD_LOGIC_VECTOR(4 DOWNTO 0);
+	signal w_VALIDADE		: STD_LOGIC;
+	signal w_DISPLAY		: STD_LOGIC_VECTOR(1 DOWNTO 0);
+	signal w_EN_DISPLAY	: STD_LOGIC;
+	signal w_RST_PEDIDO	: STD_LOGIC;
+	signal w_RST_CONTADOR: STD_LOGIC;
+	signal w_EN_CONTAGEM	: STD_LOGIC_VECTOR(4 DOWNTO 0);
+	signal w_CONTAGEM_P	: STD_LOGIC;
+	signal w_RST			: STD_LOGIC;
+	signal w_Bt_Reposicao: STD_LOGIC;
+	signal w_bt_Preparo 	: STD_LOGIC;
+	signal w_RST_DISPLAY	: STD_LOGIC;
+	signal w_EN_MAQUINA	: STD_LOGIC;
+	
+	
+BEGIN
+
+	w_RST <= NOT i_RST;
+	w_bt_Preparo <= NOT i_BT_PREPARO;
+	w_bt_Reposicao <= NOT i_BT_REPOSICAO;
+
+	CP1: CONTROLE_PEDIDO
+	PORT MAP (
+		
+		i_Bt_Cafe 		=> i_Bt_Cafe,
+		i_Bt_CLeite 	=> i_Bt_CLeite,
+		i_Bt_Mocha 		=> i_Bt_Mocha,
+		i_Bt_Acucar 	=> i_Bt_Acucar,
+		i_Bt_Tamanho 	=> i_Bt_Tamanho,
+		
+		i_RST 			=> w_RST OR w_RST_PEDIDO,
+		i_CLK				=> i_CLK,
+		i_EN				=> w_EN_PEDIDO,
+		
+		o_PEDIDO 		=> w_PEDIDO,
+		o_VALIDADE		=> w_VALIDADE,
+		o_INTERFACE		=> o_Interface
+	);
+	
+	ME1: maquina_estados
+	PORT MAP (
+		
+		i_RST 				=> w_RST,
+		i_CLK 				=> i_CLK,
+	
+		i_BT_REPOSICAO 	=> w_Bt_Reposicao,
+		i_BT_PREPARO 		=> w_Bt_Preparo,
+		i_PEDIDO 			=> w_PEDIDO,
+		i_VALIDADE			=> w_VALIDADE,
+		i_CONTAGEM_P		=> w_CONTAGEM_P,
+		i_EN_SENSORES		=> w_EN_MAQUINA,
+		
+		o_VALVULAS			=> o_Valvulas,
+		o_EN_CONTAGEM		=> w_EN_CONTAGEM,
+		o_DISPLAY			=> w_DISPLAY,
+		o_EN_DISPLAY		=> w_EN_DISPLAY,
+		o_EN_PEDIDO			=> w_EN_PEDIDO,
+		o_RST_PEDIDO		=> w_RST_PEDIDO,
+		o_RST_CONT			=> w_RST_CONTADOR,
+		o_RST_DISPLAY  	=>	w_RST_DISPLAY
+	
+	);
+	
+	CONT1: CONTADOR
+	PORT MAP (
+		
+		i_CLK 	=> i_CLK,
+		i_RST 	=> w_RST OR w_RST_CONTADOR,
+		
+		i_EN 		=> w_EN_CONTAGEM,
+		o_DONE 	=> w_CONTAGEM_P
+	
+	);
+	
+	
+	CD1: CONTROLE_DISPLAYS
+	PORT MAP ( 
+		
+		i_RST 		=> w_RST OR w_RST_DISPLAY,
+		i_CLK			=> i_CLK,
+		i_EN			=> w_EN_DISPLAY,
+		i_DISPLAYS	=> w_DISPLAY,
+		
+		o_DISPLAY_1	=> o_Display1,
+		o_DISPLAY_2	=> o_Display2,
+		o_DISPLAY_3	=> o_Display3,
+		o_DISPLAY_4	=> o_Display4
+		
+	);
+	
+	CS1: CONTROLE_SENSORES
+	PORT MAP ( 
+		
+		i_SensorT 	=> i_SensorT,
+		i_SensorN 	=> i_SensorN,
+		
+		o_SensorT 	=> o_SensorT,
+		o_SensorN	=> o_SensorN,
+		o_EN_Maquina=> w_EN_MAQUINA
+		
+	);
+	
+END behavioral;

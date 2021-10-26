@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+
+ENTITY CONTROLE_SENSORES IS
+	PORT(
+
+		i_SensorT 	: IN STD_LOGIC;
+		i_SensorN 	: IN STD_LOGIC;
+		
+		o_SensorT 	: OUT STD_LOGIC;
+		o_SensorN	: OUT STD_LOGIC;
+		o_EN_Maquina: OUT STD_LOGIC
+	);
+	
+END CONTROLE_SENSORES;
+
+ARCHITECTURE behavioral OF CONTROLE_SENSORES IS
+BEGIN
+
+	o_SensorT <= i_SensorT;
+	o_SensorN <= i_SensorN;
+	
+	o_EN_Maquina <= NOT i_SensorN AND NOT i_SensorT;
+	
+END behavioral;

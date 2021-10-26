@@ -1,0 +1,107 @@
+C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTROLE_PEDIDO.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTROLE_PEDIDO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CONTROLE_PEDIDO
+-- Compiling architecture behavioral of tb_CONTROLE_PEDIDO
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTADOR.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTADOR.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CONTADOR
+-- Compiling architecture behavioral of tb_contador
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_SENSORES.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_SENSORES.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CONTROLE_SENSORES
+-- Compiling architecture behavioral of CONTROLE_SENSORES
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTROLE_DISPLAYS.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTROLE_DISPLAYS.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CONTROLE_DISPLAYS
+-- Compiling architecture behavioral of tb_CONTROLE_DISPLAYS
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTROLE_SENSORES.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/tb_CONTROLE_SENSORES.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CONTROLE_SENSORES
+-- Compiling architecture behavioral of tb_CONTROLE_SENSORES
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd {0 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CAFETEIRA
+-- Compiling architecture behavioral of CAFETEIRA
+** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(153): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+
+** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(190): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+
+** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(201): (vcom-1436) Actual expression (infix expression) of formal "i_RST" is not globally static.
+
+** Error: C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CAFETEIRA.vhd(225): VHDL Compiler exiting
+
+} {11.0 12.0 13.0 14.0 15.0 16.0 17.0 18.0} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_PEDIDO.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_PEDIDO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CONTROLE_PEDIDO
+-- Compiling architecture behavioral of CONTROLE_PEDIDO
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_DISPLAYS.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTROLE_DISPLAYS.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CONTROLE_DISPLAYS
+-- Compiling architecture behavioral of CONTROLE_DISPLAYS
+
+} {} {}} C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTADOR.vhd {1 {vcom -work work -2002 -explicit C:/Users/Patrick/Desktop/Maquina_Caf1/Maquina_Caf1/CONTADOR.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CONTADOR
+-- Compiling architecture behavioral of CONTADOR
+
+} {} {}}

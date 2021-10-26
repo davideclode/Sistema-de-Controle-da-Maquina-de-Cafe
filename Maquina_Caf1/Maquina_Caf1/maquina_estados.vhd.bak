@@ -1,0 +1,214 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+
+ENTITY maquina_estados IS
+	PORT(
+		
+		i_RST 				: in STD_LOGIC;
+		i_CLK 				: in STD_LOGIC;
+	
+		i_BT_REPOSICAO 	: in STD_LOGIC;
+		i_BT_PREPARO 		: in STD_LOGIC;
+		i_PEDIDO 			: in STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2mocha, 1cleite, 0cafe
+		i_VALIDADE			: in STD_LOGIC;
+		i_CONTAGEM_P		: in STD_LOGIC;
+		i_EN_SENSORES		: in STD_LOGIC;
+		
+		o_VALVULAS			: out STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2choco, 1leite, 0cafe
+		o_EN_CONTAGEM		: out STD_LOGIC_VECTOR(4 DOWNTO 0);
+		o_DISPLAY			: out STD_LOGIC_VECTOR(1 DOWNTO 0);	--decidir se é 1 ou 2 posições
+		o_EN_DISPLAY		: out	STD_LOGIC;
+		o_EN_PEDIDO			: out STD_LOGIC; 
+		o_RST_PEDIDO		: OUT STD_LOGIC;
+		o_RST_CONT			: out STD_LOGIC;
+		o_RST_DISPLAY		: out STD_LOGIC
+		
+		
+	);
+END maquina_estados;
+
+ARCHITECTURE behavioral OF maquina_estados IS
+
+	type w_State_Type is (st_INICIO, st_ERRO, st_POS, st_AG_C_POS, st_AGUA, st_AG_C_AGUA, st_REPOSICAO, st_PRONTO, st_AG_C_PRONTO);  --st_AG_C_POS = aguarda contagem de pós
+	
+		attribute syn_encoding : string;
+		attribute syn_encoding of w_State_Type : type is "safe"; --o que for declarado aqui, não pode ser mudado
+
+		signal w_STATE 	:  w_State_Type;
+		signal w_n_cafe	: STD_LOGIC_VECTOR(3 DOWNTO 0);
+		signal w_n_leite	: STD_LOGIC_VECTOR(3 DOWNTO 0);
+		signal w_n_choco	: STD_LOGIC_VECTOR(3 DOWNTO 0);
+		signal w_n_acucar	: STD_LOGIC_VECTOR(3 DOWNTO 0);
+		
+BEGIN
+
+	U_MACHINE : process(i_CLK, i_RST)
+	BEGIN	
+		if(i_RST = '1') then
+			o_EN_PEDIDO <= '1';
+			o_EN_DISPLAY <= '0';
+			o_VALVULAS(0) <= '0';
+			o_VALVULAS(1) <= '0';
+			o_VALVULAS(2) <= '0';
+			o_VALVULAS(3) <= '0';
+			o_VALVULAS(4) <= '0';
+			o_RST_DISPLAY <= '0';
+			w_STATE  <= st_INICIO;
+		elsif rising_edge(i_CLK) then
+			if(i_EN_SENSORES = '1') then
+				case w_STATE is
+					when st_INICIO => 
+							o_RST_DISPLAY <= '0';
+							o_RST_PEDIDO <= '0';
+							if(i_BT_PREPARO = '1') then
+								if(i_VALIDADE = '1') then
+									o_EN_PEDIDO <= '0';
+									o_EN_DISPLAY <= '0';
+									if (w_n_acucar < "0010" OR w_n_cafe < "0010" OR w_n_choco < "0010" OR w_n_leite < "0010") then
+										w_STATE <= st_REPOSICAO;
+									else
+										w_STATE <= st_POS;
+									end if;
+								else
+									o_EN_PEDIDO <= '1';
+									w_STATE <= st_ERRO;
+								end if;
+							end if;
+								
+					when st_REPOSICAO =>
+							o_DISPLAY <= "10";  --printa REPO no display
+							o_EN_DISPLAY <= '1';
+							if(i_BT_REPOSICAO = '1') then
+								w_STATE <= st_INICIO;
+								w_n_acucar <= x"A";
+								w_n_cafe <= x"A";
+								w_n_choco <= x"A";
+								w_n_leite <= x"A";
+								o_EN_PEDIDO <= '1';
+								o_EN_DISPLAY <= '0';
+								o_RST_DISPLAY <= '1';
+							end if;
+					
+					when st_POS => 
+							o_DISPLAY <= "00";
+							o_EN_DISPLAY <= '1';
+							o_VALVULAS(3) <= i_PEDIDO(3); --Açucar
+							if(i_PEDIDO(3) = '1') then
+								if(i_PEDIDO(4) = '1') then
+									w_n_acucar <= w_n_acucar - "10";
+								else
+									w_n_acucar <= w_n_acucar - 1;
+								END IF;
+							END IF;
+							if(i_PEDIDO(0) = '1') then
+								o_VALVULAS(0) <= '1';
+								o_VALVULAS(1) <= '0';
+								o_VALVULAS(2) <= '0';
+								if(i_PEDIDO(4) = '1') then
+									w_n_cafe <= w_n_cafe - "10";
+								else
+									w_n_cafe <= w_n_cafe - 1;
+								END IF;
+							elsif(i_PEDIDO(1) = '1') then
+								o_VALVULAS(0) <= '1';
+								o_VALVULAS(1) <= '1';
+								o_VALVULAS(2) <= '0';
+								if(i_PEDIDO(4) = '1') then
+									w_n_cafe <= w_n_cafe - "10";
+									w_n_leite <= w_n_leite - "10";
+								else
+									w_n_cafe <= w_n_cafe - 1;
+									w_n_leite <= w_n_leite - 1;
+								END IF;
+							elsif(i_PEDIDO(2) = '1') then
+								o_VALVULAS(0) <= '1';
+								o_VALVULAS(1) <= '1';
+								o_VALVULAS(2) <= '1';
+								if(i_PEDIDO(4) = '1') then
+									w_n_cafe <= w_n_cafe - "10";
+									w_n_leite <= w_n_leite - "10";
+									w_n_choco <= w_n_choco - "10";
+								else
+									w_n_cafe <= w_n_cafe - 1;
+									w_n_leite <= w_n_leite - 1;
+									w_n_choco <= w_n_choco - 1;
+								END IF;
+								
+							END IF;
+							o_RST_CONT <= '1';
+							if(i_PEDIDO(4) = '1') then
+								o_EN_CONTAGEM <= "1" & x"2";
+							else
+								o_EN_CONTAGEM <= "1" & x"1";
+							END IF;
+							w_STATE <= st_AG_C_POS;
+							
+					when st_AG_C_POS => 
+					
+							o_RST_CONT <= '0';
+							if(i_CONTAGEM_P = '1') then
+								o_VALVULAS(0) <= '0';
+								o_VALVULAS(1) <= '0';
+								o_VALVULAS(2) <= '0';
+								o_VALVULAS(3) <= '0';
+								o_EN_CONTAGEM <= "0" & x"0";
+								w_STATE <= st_AGUA;
+							END IF;
+							
+					when st_AGUA => 
+							o_VALVULAS(4) <= '1';
+							if(i_PEDIDO(4) = '1') then
+								o_EN_CONTAGEM <= "1" & x"A";	--11010 conta 10 segundos
+							else
+								o_EN_CONTAGEM <= "1" & x"5";  --10101 conta 5 segundos
+							END IF;
+							o_RST_CONT <= '1';
+							w_STATE <= st_AG_C_AGUA;
+							
+					when st_AG_C_AGUA => 
+							o_RST_CONT <= '0';
+							if(i_CONTAGEM_P = '1') then
+								o_VALVULAS(4) <= '0';
+								o_EN_CONTAGEM <= "0" & x"0";
+								w_STATE <= st_PRONTO;
+							END IF;
+							
+					when st_PRONTO =>
+							o_DISPLAY <= "01";
+							o_EN_DISPLAY <= '1';
+							o_RST_PEDIDO <= '1';
+							o_EN_CONTAGEM <= "1" & x"5";  --10101 conta 5 segundos
+							w_STATE <= st_AG_C_PRONTO;
+					
+					when st_AG_C_PRONTO =>
+							if(i_CONTAGEM_P = '1') then
+								o_EN_DISPLAY <= '0';
+								o_RST_PEDIDO <= '1';
+								o_EN_PEDIDO <= '1';
+								o_RST_DISPLAY <= '1';
+								o_EN_CONTAGEM <= "0" & x"0";
+								w_STATE <= st_INICIO;
+							END IF;
+							
+					when st_ERRO => 
+							o_RST_PEDIDO <= '1';
+							o_EN_DISPLAY <= '1';
+							o_DISPLAY <= "11";
+							if(i_BT_PREPARO = '1') then
+								w_STATE <= st_AG_C_PRONTO;
+								o_EN_CONTAGEM <= "1" & x"2";
+							end if;
+							
+								
+					when others => 
+							w_STATE <= st_INICIO;
+				end case;
+			end if;		
+		end if;
+
+	end process U_MACHINE;
+
+end behavioral;

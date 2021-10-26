@@ -1,0 +1,38 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+
+ENTITY tb_MAQUINA_ESTADOS IS
+END tb_MAQUINA_ESTADOS;
+
+ARCHITECTURE behavioral OF tb_MAQUINA_ESTADOS IS
+
+	component MAQUINA_ESTADOS IS
+	PORT(
+		
+		i_RST 				: in STD_LOGIC;
+		i_CLK 				: in STD_LOGIC;
+	
+		i_BOTAO_REPOSICAO : in STD_LOGIC;
+		i_BOTAO_PREPARO 	: in STD_LOGIC;
+		i_PEDIDO 			: in STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2mocha, 1cleite, 0cafe
+		i_VALIDADE			: in STD_LOGIC;
+		i_CONTAGEM_Pedid	: in STD_LOGIC;
+		i_EN_SENSORES		: in STD_LOGIC;
+		
+		o_VALVULAS			: out STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2choco, 1leite, 0cafe
+		o_EN_CONTAGEM		: out STD_LOGIC_VECTOR(4 DOWNTO 0);
+		o_DISPLAY			: out STD_LOGIC_VECTOR(1 DOWNTO 0);	--decidir se é 1 ou 2 posições
+		o_EN_DISPLAY		: out	STD_LOGIC;
+		o_EN_PEDIDO			: out STD_LOGIC; 
+		o_RST_PEDIDO		: OUT STD_LOGIC;
+		o_RST_CONT			: out STD_LOGIC;
+		o_RST_DISPLAY		: out STD_LOGIC
+	);
+	END component;
+
+BEGIN
+
+end behavioral;

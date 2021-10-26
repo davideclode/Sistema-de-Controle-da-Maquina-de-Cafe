@@ -1,0 +1,11 @@
+# Compile of tb_CONTADOR.vhd was successful.
+# Compile of CONTADOR.vhd was successful.
+# Compile of tb_CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_DISPLAYS.vhd was successful.
+# Compile of CONTROLE_PEDIDO.vhd was successful.
+# Compile of CONTROLE_SENSORES.vhd was successful.
+# Compile of maquina_estados.vhd was successful.
+# Compile of tb_CONTROLE_SENSORES.vhd was successful.
+# Compile of CAFETEIRA.vhd failed with 4 errors.
+# 9 compiles, 1 failed with 4 errors. 
+vsim +altera -do CONTADOR_run_msim_rtl_vhdl.do -l msim_transcript -gui work.tb_controle_sensores

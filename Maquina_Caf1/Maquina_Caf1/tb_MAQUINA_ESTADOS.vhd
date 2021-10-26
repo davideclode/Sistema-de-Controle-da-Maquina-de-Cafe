@@ -1,0 +1,95 @@
+--library ieee;
+--use ieee.std_logic_1164.all;
+--use ieee.numeric_std.all;
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;
+--
+--ENTITY tb_MAQUINA_ESTADOS IS
+--END tb_MAQUINA_ESTADOS;
+--
+--ARCHITECTURE behavioral OF tb_MAQUINA_ESTADOS IS
+--
+--	component MAQUINA_ESTADOS IS
+--	PORT(
+--		
+--		i_RST 				: in STD_LOGIC;
+--		i_CLK 				: in STD_LOGIC;
+--	
+--		i_BOTAO_REPOSICAO : in STD_LOGIC;
+--		i_BOTAO_PREPARO 	: in STD_LOGIC;
+--		i_PEDIDO 			: in STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2mocha, 1cleite, 0cafe
+--		i_VALIDADE			: in STD_LOGIC;
+--		i_CONTAGEM_Pedid	: in STD_LOGIC;
+--		i_EN_SENSORES		: in STD_LOGIC;
+--		
+--		o_VALVULAS			: out STD_LOGIC_VECTOR(4 DOWNTO 0); --4tamanho, 3açucar, 2choco, 1leite, 0cafe
+--		o_EN_CONTAGEM		: out STD_LOGIC_VECTOR(4 DOWNTO 0);
+--		o_DISPLAY			: out STD_LOGIC_VECTOR(1 DOWNTO 0);	--decidir se é 1 ou 2 posições
+--		o_EN_DISPLAY		: out	STD_LOGIC;
+--		o_EN_PEDIDO			: out STD_LOGIC; 
+--		o_RST_PEDIDO		: OUT STD_LOGIC;
+--		o_RST_CONT			: out STD_LOGIC;
+--		o_RST_DISPLAY		: out STD_LOGIC
+--	);
+--	END component;
+--	
+--	signal w_rst 				 : std_logic;
+--	signal w_clk 				 : std_logic;
+--	signal w_BOTAO_REPOSICAO : std_logic;
+--	signal w_BOTAO_PREPARO 	 : std_logic;
+--	signal w_PEDIDO 			 : std_logic_vector(4 DOWNTO 0);
+--	signal w_VALIDADE			 : std_logic;
+--	signal w_CONTAGEM_Pedid	 : std_logic;
+--	signal w_EN_SENSORES		 : std_logic;
+--	signal w_VALVULAS	 		 : std_logic;
+--	signal w_EN_CONTAGEM 	 : std_logic;
+--	signal w_DISPLAY	 		 : std_logic;
+--	signal w_EN_DISPLAY 		 : std_logic;
+--	signal w_EN_PEDIDO		 : std_logic;
+--	signal w_RST_PEDIDO 		 : std_logic_vector(4 downto 0);
+--	signal w_RST_CONT	 		 : std_logic_vector(4 downto 0);
+--	signal w_RST_DISPLAY 	 : std_logic_vector(1 downto 0);
+--	
+--BEGIN
+--	
+--	UUT1 : MAQUINA_ESTADOS
+--	PORT map(
+--		i_RST 				=>w_rst,
+--		i_CLK 				=>w_clk,
+--		
+--		i_BOTAO_REPOSICAO =>w_BOTAO_REPOSICAO,
+--		i_BOTAO_PREPARO 	=>w_BOTAO_PREPARO,
+--		i_PEDIDO 			=>w_PEDIDO,
+--		i_VALIDADE			=>w_VALIDADE,
+--		i_CONTAGEM_Pedid	=>w_CONTAGEM_Pedid,
+--		i_EN_SENSORES		=>w_EN_SENSORES,
+--		
+--		o_VALVULAS			=>w_VALVULAS,
+--		o_EN_CONTAGEM		=>w_EN_CONTAGEM,
+--		o_DISPLAY			=>w_DISPLAY,
+--		o_EN_DISPLAY		=>w_EN_DISPLAY ,
+--		o_EN_PEDIDO			=>w_EN_PEDIDO,
+--		o_RST_PEDIDO		=>w_RST_PEDIDO,
+--		o_RST_CONT			=>w_RST_CONT,
+--		o_RST_DISPLAY		=>w_RST_DISPLAY
+--	);
+--	
+--	clk: process
+--	begin
+--		w_clk <= '0';
+--		wait for 10 ns;
+--		w_clk <= '1';
+--		wait for 10 ns;
+--	end process clk;
+--	
+--	rst: process
+--	begin
+--		w_rst <= '0';
+--		wait for 35 ns;
+--		w_rst <= '1';
+--		wait;
+--	end process rst;
+--	
+--	
+--	
+--end behavioral;
